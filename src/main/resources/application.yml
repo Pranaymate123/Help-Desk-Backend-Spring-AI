@@ -16,18 +16,27 @@ spring:
 #    database-platform: org.hibernate.dialect.MySQL8Dialect
     hibernate:
       ddl-auto: update
+      show-sql: true
 
   ai:
     openai:
-      api-key: ${OPENAI-API-KEY}
+      api-key: ${OPENAI_API_KEY}
       chat:
         options:
           model: gpt-4o-mini
 
 
 server:
-  port:8081
+  port: 8081
 
+logging:
+  level:
+    org:
+      springframework:
+        ai:
+          chat:
+            client:
+              advisor: DEBUG
 
 #Database Configuration
 
