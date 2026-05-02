@@ -26,6 +26,13 @@ spring:
           model: gpt-4o-mini
 
 
+
+    chat:
+      memory:
+        repository:
+          jdbc:
+            initialize-schema: always
+
 server:
   port: 8081
 
@@ -38,7 +45,6 @@ logging:
             client:
               advisor: DEBUG
 
-#Database Configuration
 
 
 

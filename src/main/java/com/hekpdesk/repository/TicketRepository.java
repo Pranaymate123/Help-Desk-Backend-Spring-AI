@@ -10,5 +10,5 @@ import java.util.Optional;
 @Repository
 public interface TicketRepository extends JpaRepository<Ticket,Long> {
 
-    List<Ticket> findByUsername(String username);
+    List<Ticket> findByEmail(String username);
 }

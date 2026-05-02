@@ -23,13 +23,15 @@ public class Ticket {
     private Long id;
 
     @Lob
+    @Column(length = 1000)
     private String summary;
 
     @Enumerated(EnumType.STRING)
     private Priority priority;
 
+    private String category;
     @Column(updatable = false)
-    private String username;
+    private String email;
 
     private LocalDateTime createdOn;
 

@@ -3,6 +3,7 @@ package com.hekpdesk.service.impl;
 import com.hekpdesk.entity.Ticket;
 import com.hekpdesk.repository.TicketRepository;
 import com.hekpdesk.service.TicketService;
+import jakarta.transaction.Transactional;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
@@ -21,8 +22,11 @@ public class TicketServiceImpl implements TicketService {
     private final TicketRepository ticketRepository;
 
     @Override
+    @Transactional
     public Ticket createTicket(Ticket ticket) {
 
+        System.out.println("-----------------------------------------------Ticket Created Successfully---------------------------");
+        ticket.setId(null);
         return ticketRepository.save(ticket);
     }
 
@@ -59,6 +63,6 @@ public class TicketServiceImpl implements TicketService {
 
     @Override
     public List<Ticket> getTicketsByUsername(String username) {
-        return ticketRepository.findByUsername(username);
+        return ticketRepository.findByEmail(username);
     }
 }
